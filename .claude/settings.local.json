@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where cl:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(node:*)",
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && source venv/Scripts/activate && pytest tests/test_agent.py -v 2>&1)",
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/python.exe -m pytest tests/test_agent.py -v 2>&1)",
+      "Bash(echo ragas import failed:*)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"import chromadb.telemetry.product.posthog as ph; import inspect; print\\(inspect.getsourcefile\\(ph\\)\\)\" 2>&1)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"\nimport os\nfrom pydantic_settings import BaseSettings\n\nclass TestSettings\\(BaseSettings\\):\n    model_config = {'env_file': '.env'}\n    test_var: str = 'default'\n\ns = TestSettings\\(\\)\nprint\\(f'Setting value: {s.test_var}'\\)\nprint\\(f'os.environ has test_var: {\\\\\"TEST_VAR\\\\\" in os.environ}'\\)\nprint\\(f'ANONYMIZED_TELEMETRY in os.environ: {\\\\\"ANONYMIZED_TELEMETRY\\\\\" in os.environ}'\\)\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"\nimport os\n# Check if .env file sets os.environ\nprint\\('Before any imports:'\\)\nprint\\(f'  ANONYMIZED_TELEMETRY in os.environ: {\\\\\"ANONYMIZED_TELEMETRY\\\\\" in os.environ}'\\)\n\n# Load settings\nfrom src.config import settings\nprint\\('\\\\nAfter importing settings:'\\)\nprint\\(f'  ANONYMIZED_TELEMETRY in os.environ: {\\\\\"ANONYMIZED_TELEMETRY\\\\\" in os.environ}'\\)\nprint\\(f'  settings object exists'\\)\n\n# Check environment variables\nimport sys\nprint\\(f'\\\\\\\\nPython: {sys.version_info}'\\)\nprint\\(f'CWD: {os.getcwd\\(\\)}'\\)\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"\nimport posthog\nimport inspect\n\nprint\\('posthog module:', posthog\\)\nprint\\('posthog.capture:', posthog.capture\\)\nprint\\('posthog.capture signature:', inspect.signature\\(posthog.capture\\)\\)\n\n# Try to call it\ntry:\n    posthog.capture\\('test_user', 'test_event', {'prop': 'value'}\\)\nexcept TypeError as e:\n    print\\(f'Error: {e}'\\)\n\n# Try with disabled\nposthog.disabled = True\nprint\\(f'\\\\\\\\nAfter setting posthog.disabled = True:'\\)\nprint\\('posthog.capture:', posthog.capture\\)\ntry:\n    posthog.capture\\('test_user', 'test_event', {'prop': 'value'}\\)\n    print\\('Call succeeded'\\)\nexcept TypeError as e:\n    print\\(f'Error: {e}'\\)\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"\nimport posthog\nprint\\(f'posthog version: {posthog.__version__}'\\)\n\n# Try to understand the correct way to call it\nimport inspect\nsig = inspect.signature\\(posthog.capture\\)\nprint\\(f'Signature: {sig}'\\)\n\n# Read the source\ntry:\n    source = inspect.getsource\\(posthog.capture\\)\n    print\\(f'\\\\\\\\nSource \\(first 400 chars\\):\\\\\\\\n{source[:400]}'\\)\nexcept:\n    print\\('Could not get source'\\)\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\" && python -c \"\nimport chromadb\nprint\\(f'chromadb version: {chromadb.__version__}'\\)\n\" 2>&1)",
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/python.exe -m pytest tests/test_rag.py -v 2>&1)",
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/python.exe -m pytest tests/test_evaluation.py -v 2>&1)",
+      "Bash(cd:*)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/pip install \"posthog>=2.4.0,<3.0.0\" 2>&1)"
+    ]
+  }
+}
