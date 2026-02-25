@@ -19,7 +19,10 @@
       "Bash(cd:*)",
       "Bash(grep:*)",
       "Bash(python3:*)",
-      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/pip install \"posthog>=2.4.0,<3.0.0\" 2>&1)"
+      "Bash(cd /c/Ketan/Projects/predictive-maintenance-ai/backend && venv/Scripts/pip install \"posthog>=2.4.0,<3.0.0\" 2>&1)",
+      "Bash(C:\\\\Ketan\\\\Projects\\\\predictive-maintenance-ai\\\\backend\\\\venv\\\\Scripts\\\\python.exe:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)"
     ]
   }
 }

@@ -36,7 +36,3 @@ Thumbs.db
 *.tmp
 .idea/
 .vscode/
-backend/data/raw/nasa_cmapss/README.txt
-backend/data/raw/nasa_cmapss/RUL_FD001.txt
-backend/data/raw/nasa_cmapss/test_FD001.txt
-backend/data/raw/nasa_cmapss/train_FD001.txt
