@@ -156,7 +156,7 @@ export default function EquipmentDetailPage() {
           <CardContent>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {Object.entries(sensors)
-                .filter(([, v]) => v !== undefined && v !== null)
+                .filter(([, v]) => typeof v === "number" && !isNaN(v as number))
                 .map(([key, value]) => (
                   <div key={key} className="bg-muted/50 rounded-md p-3">
                     <p className="text-xs text-muted-foreground">{key}</p>

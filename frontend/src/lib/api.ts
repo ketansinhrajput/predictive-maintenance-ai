@@ -1,5 +1,5 @@
 import axios from "axios"
-import { getSession } from "next-auth/react"
+import { getSession, signOut } from "next-auth/react"
 import type {
   EquipmentListItem,
   HealthStatusResponse,
@@ -28,9 +28,9 @@ api.interceptors.request.use(async (config) => {
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error.response?.status === 401 && typeof window !== "undefined") {
-      window.location.href = "/login"
+      await signOut({ callbackUrl: "/login" })
     }
     return Promise.reject(error)
   }
@@ -44,7 +44,17 @@ export const equipmentApi = {
     api.get(`/api/equipment/${id}/health`).then((r) => r.data),
 
   getSensors: (id: string): Promise<SensorReadings> =>
-    api.get(`/api/equipment/${id}/sensors`).then((r) => r.data),
+    api.get(`/api/equipment/${id}/sensors`).then((r) => {
+      const d = r.data
+      if (d?.sensors && typeof d.sensors === "object") {
+        return {
+          ...d.sensors,
+          ...(d.current_cycle != null && { current_cycle: d.current_cycle }),
+          ...(d.max_cycle     != null && { max_cycle:     d.max_cycle     }),
+        }
+      }
+      return d
+    }),
 
   getHistory: (id: string): Promise<MaintenanceHistoryItem[]> =>
     api.get(`/api/equipment/${id}/history`).then((r) => r.data),
